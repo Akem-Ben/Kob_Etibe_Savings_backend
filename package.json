@@ -1,12 +1,12 @@
 {
-  "name": "Kob_Etibe_Savings_backend",
+  "name": "KobEtibeSavingsBackend",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/Akem-Ben/Kob_Etibe_Savings_backend.git",
   "author": "Akem-Ben <akemini.ndaobong@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc -watch",
+    "build": "tsc -w",
     "start": "nodemon dist/app.js"
   },
   "dependencies": {
