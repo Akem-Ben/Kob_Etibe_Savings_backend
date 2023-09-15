@@ -28,7 +28,6 @@ export type TransactionAttributes = {
     status: string;
     action: string;
     type: string;
-    created_at: Date;
 }
 
 class Transactions extends Model<TransactionAttributes>{}
@@ -70,11 +69,6 @@ Transactions.init(
             type: DataTypes.ENUM(...Object.values(type)),
             allowNull: false
           },
-        created_at: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: DataTypes.NOW
-        }
     },
     {
         sequelize: db,
