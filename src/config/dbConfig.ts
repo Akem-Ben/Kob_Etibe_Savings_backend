@@ -17,9 +17,3 @@ if(stage === 'production'){
 export default merge({
     stage
 }, config)
-
-const merger = merge({
-    stage
-}, config)
-
-console.log(merger)

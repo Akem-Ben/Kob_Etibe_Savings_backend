@@ -13,11 +13,12 @@ const {
 
 export default {
     PORT: PROD_PORT,
-    PROD_DB_NAME,
-    PROD_DB_USERNAME,
-    PROD_DB_PASSWORD,
-    PROD_DB_HOST,
-    PROD_DB_PORT
+    DB_NAME: PROD_DB_NAME,
+    DB_USERNAME:PROD_DB_USERNAME,
+    DB_PASSWORD:PROD_DB_PASSWORD,
+    DB_HOST:PROD_DB_HOST,
+    DB_PORT:PROD_DB_PORT
 }
 
-console.log('Running in dev mode');
+console.log('Running in production mode');
+

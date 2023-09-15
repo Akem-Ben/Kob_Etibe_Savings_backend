@@ -20,4 +20,4 @@ export default {
     DB_PORT
 }
 
-console.log('Running in dev mode');
+console.log('Running in development mode');
