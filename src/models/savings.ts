@@ -19,7 +19,6 @@ export enum Frequency {
     frequency: Frequency;
     startDate: Date;
     endDate: Date;
-    created_at: Date;
   };
 
   class Savings extends Model<SavingAttributes> {}
@@ -67,11 +66,6 @@ Savings.init(
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.DATE,
-    },
-    created_at: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
     },
   },
   {

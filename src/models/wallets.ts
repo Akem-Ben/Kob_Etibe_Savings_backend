@@ -13,8 +13,6 @@ export type WalletAttributes = {
     user_id: string;
     balance: number;
     type: WalletType;
-    created_at: Date;
-    updated_at: Date;
     total_group_savings: number;
     total_personal_savings: number;
 };
@@ -42,15 +40,6 @@ Wallets.init (
         type: {
             type: DataTypes.ENUM(...Object.values(WalletType)),
             allowNull: false
-        },
-        created_at: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: DataTypes.NOW
-        },
-        updated_at: {
-            type: DataTypes.DATE,
-            allowNull: true
         },
         total_group_savings: {
             type: DataTypes.INTEGER,

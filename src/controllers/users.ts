@@ -10,14 +10,18 @@ import {WalletAttributes, WalletType} from '../models/wallets';
 
 export const createUser = async(req:Request, res:Response)=> {
     try{
+
 const {firstName, lastName, email, phone} = req.body
+
 const validate = await registerSchema.validateAsync(req.body)
+
 if (validate.error) {
     return res.status(400).json({
       Error: validate.error.details[0].message,
     });
   }
   const userId = v4()
+
   let password:any = await passWordGenerator(phone)
   let passwordChange = password.toString()
   const mainUserPassword = await hashPassword(passwordChange)
@@ -35,8 +39,6 @@ const newUser = await Users.create({
     profilePic: "",
     password: mainUserPassword,
     role: Role.CONTRIBUTOR,
-    created_at: new Date(),
-    updated_at: new Date(),
     otp: 0,
     phone,
     verified: false
@@ -54,15 +56,14 @@ if(findUser){
         to: findUser.email,
         password: password
     })
-    const walletId = v4();
+
+const walletId = v4();
 
 const newWallet = await Wallets.create({
     id: walletId,
     user_id: findUser.id,
     balance: 0,
     type: WalletType.GLOBAL,
-    created_at: new Date(),
-    updated_at: new Date(),
     total_group_savings: 0,
     total_personal_savings: 0 
 }) as unknown as WalletAttributes;

@@ -14,8 +14,6 @@ export type UserAttributes = {
     profilePic: string;
     password: string;
     role: Role;
-    created_at: Date;
-    updated_at: Date;
     phone: string;
     otp: number;
     verified: boolean;
@@ -62,19 +60,10 @@ Users.init(
             type: DataTypes.ENUM(...Object.values(Role)),
             allowNull: true
         },
-        created_at: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: DataTypes.NOW
-        },
         otp: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: true
         },
-        updated_at: {
-            type: DataTypes.DATE,
-            allowNull: true
-        }
     },
     {
         sequelize: db,

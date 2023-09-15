@@ -36,7 +36,6 @@ export type GroupAttributes = {
     frequency: string;
     startDate: Date;
     endDate: Date;
-    created_at: Date;
 }
 
 class Groups extends Model<GroupAttributes>{}
@@ -101,11 +100,6 @@ Groups.init(
         type: DataTypes.DATE,
         allowNull: false,
         defaultValue: DataTypes.DATE,
-      },
-      created_at: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW
       },
 },
 {
