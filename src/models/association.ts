@@ -28,3 +28,4 @@ Savings.belongsTo(Users, {
 Groups.hasMany(Transactions, {
     foreignKey: "owner_id"
 })
+

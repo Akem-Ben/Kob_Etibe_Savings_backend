@@ -2,7 +2,7 @@ import {Model, DataTypes} from 'sequelize';
 import {db} from '../config';
 import Users from './users'
 
-enum type {
+export enum WalletType {
     GLOBAL = "Global",
     SAVINGS = "Savings",
     GROUP_WALLET = "Group Wallet"
@@ -12,7 +12,7 @@ export type WalletAttributes = {
     id: string;
     user_id: string;
     balance: number;
-    type: string;
+    type: WalletType;
     created_at: Date;
     updated_at: Date;
     total_group_savings: number;
@@ -40,7 +40,7 @@ Wallets.init (
             allowNull: false
         },
         type: {
-            type: DataTypes.ENUM(...Object.values(type)),
+            type: DataTypes.ENUM(...Object.values(WalletType)),
             allowNull: false
         },
         created_at: {

@@ -2,7 +2,7 @@ import { Model, DataTypes } from "sequelize";
 import { db } from "../config";
 import Users from "./users";
 
-enum frequency {
+export enum Frequency {
     DAILY = "Daily",
     WEEKLY = "Weekly",
     MONTHLY = "Monthly",
@@ -16,7 +16,7 @@ enum frequency {
     target: string;
     target_amount: number;
     amount_saved: number;
-    frequency: string;
+    frequency: Frequency;
     startDate: Date;
     endDate: Date;
     created_at: Date;
@@ -47,7 +47,7 @@ Savings.init(
       allowNull: false,
     },
     frequency: {
-      type: DataTypes.ENUM(...Object.values(frequency)),
+      type: DataTypes.ENUM(...Object.values(Frequency)),
       allowNull: false,
     },
     startDate: {
