@@ -2,10 +2,10 @@ import {Request, Response, NextFunction} from 'express';
 import {registerSchema} from '../middleware/validators';
 import {Users, Wallets} from '../models';
 import {v4} from 'uuid';
-import { GenerateToken, hashPassword, passWordGenerator } from '../utils/helpers';
+import { GenerateToken, hashPassword, passWordGenerator } from '../utilities/helpers';
 import {Role, UserAttributes} from '../models/users'
 import { UserTokenPayload } from '../interfaces/userinterfaces';
-import { mailUserPassword } from '../utils/notification';
+import { mailUserPassword } from '../utilities/notification';
 import {WalletAttributes, WalletType} from '../models/wallets';
 
 export const createUser = async(req:Request, res:Response)=> {
