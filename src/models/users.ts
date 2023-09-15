@@ -1,7 +1,7 @@
 import {Model, DataTypes} from 'sequelize';
 import {db} from '../config';
 
-enum role {
+export enum Role {
     ADMIN = "Admin",
     CONTRIBUTOR = "Contributor"
 }
@@ -13,10 +13,12 @@ export type UserAttributes = {
     email: string;
     profilePic: string;
     password: string;
-    role: string;
+    role: Role;
     created_at: Date;
     updated_at: Date;
+    phone: string;
     otp: number;
+    verified: boolean;
 }
 
 class Users extends Model<UserAttributes>{}
@@ -26,6 +28,14 @@ Users.init(
         id: {
             type: DataTypes.UUID,
             primaryKey: true,
+            allowNull: false
+        },
+        verified: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        phone: {
+            type: DataTypes.STRING,
             allowNull: false
         },
         firstName: {
@@ -49,7 +59,7 @@ Users.init(
             allowNull: false
         },
         role: {
-            type: DataTypes.ENUM(...Object.values(role)),
+            type: DataTypes.ENUM(...Object.values(Role)),
             allowNull: true
         },
         created_at: {
